@@ -1,7 +1,9 @@
+import fb from "../../config/fbConfig"
+
 export const createProject = (project) => {
-  return (dispatch, getState, { getFirestore, getFirebase }) => {
-    const firestore = getFirestore();
-    firestore
+  return (dispatch) => {
+    const db = fb.firestore();
+    db
       .collection("projects")
       .add({
         ...project,
@@ -23,3 +25,19 @@ export const createProject = (project) => {
       });
   };
 };
+
+export const fetchProjects = () => async dispatch => {
+  const db = fb.firestore();
+  const projects = [];
+  await db.collection("projects")
+    .get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        projects.push({ id: doc.id, ...doc.data() });
+      });
+    })
+    .catch(error => {
+      dispatch({ type: "FETCH_PROJECTS_ERROR", error });
+    });
+  dispatch({ type: "FETCH_PROJECTS", projects });
+}
