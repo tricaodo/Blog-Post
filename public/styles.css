@@ -1,0 +1,53 @@
+.unorderd-list li{
+    display: inline-block;
+    border: 1px solid turquoise;
+    padding: 2px 8px;
+    border-radius: 3px;
+}
+
+.card-title{
+    margin: 0px 15px !important;
+    border-bottom: 1px solid #eeee;
+}
+.card-content{
+    padding: 1.0em;
+}
+
+.section-padding-top{
+    padding-top:7rem;
+}
+
+.outer-border-image-lv1{
+    border: 20px solid rgba(0, 0, 0, 0.05);
+    border-radius: 50%;
+    width: 70%;
+    heigh: 70%;
+}
+
+.outer-border-image-lv2{
+    border: 20px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+}
+
+.outer-border-image-lv1 img{
+    border: 20px solid rgba(0, 0, 0, 0.17);
+    border-radius: 50%;
+}
+
+.image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+
+a.navbar-item:focus{
+    background-color: transparent!important;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+

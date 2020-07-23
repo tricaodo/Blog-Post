@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { signUp } from "../../store/actions/authActions";
 
 class SignUp extends Component {
   state = {
@@ -13,9 +16,11 @@ class SignUp extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.signUp(this.state);
   };
   render() {
+    const { auth } = this.props;
+    if (auth.currentUserId !== null) return <Redirect to="/" />
     return (
       <div className="container">
         <form onSubmit={this.handleSubmit} className="white">
@@ -31,18 +36,23 @@ class SignUp extends Component {
           <div className="input-field">
             <label htmlFor="firstName">First Name</label>
             <input type="text" id="firstName" onChange={this.handleChange} />
-          </div>          
+          </div>
           <div className="input-field">
             <label htmlFor="lastName">Last Name</label>
             <input type="text" id="lastName" onChange={this.handleChange} />
-          </div>          
+          </div>
           <div className="input-field">
             <button className="btn pink lighten-1 z-depth-0">Sign Up</button>
+            <div className="red-text center">
+              {auth.error !== null ? <p>{auth.error}</p> : null}
+            </div>
           </div>
         </form>
       </div>
     );
   }
 }
-
-export default SignUp;
+const mapStateToProps = state => {
+  return { auth: state.auth };
+}
+export default connect(mapStateToProps, { signUp })(SignUp);

@@ -1,29 +1,41 @@
 import React from "react";
+import moment from "moment";
+import { connect } from "react-redux";
+import { fetchProject } from "../../store/actions/projectActions";
 
-const ProjectDetails = (props) => {
-  const id = props.match.params.id;
-  return (
-    <div className="container section project-details">
-      <div className="card z-depth-0">
-        <div className="card-content">
-          <span className="card-title">Project Title - {id}</span>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <div className="card-action grey lighten-4 grey-text">
-            <div>Posted by The Net Ninja</div>
-            <div>2nd September, 2AM</div>
+class ProjectDetails extends React.Component {
+  componentDidMount() {
+
+    const id = this.props.match.params.id;
+    this.props.fetchProject(id);
+  }
+  render() {
+    if (!this.props.project) return <div></div>
+    const { project } = this.props;
+    return (
+      <div className="container section project-details">
+        <div className="card z-depth-0">
+          <div className="card-content">
+            <span className="card-title">{project.title}</span>
+            <p>
+              {project.content}
+            </p>
+            <div className="card-action grey lighten-4 grey-text">
+              <div>Posted by {project.authorFirstName} {project.authorLastName}</div>
+              <div>{moment(project.createdAt.toDate()).calendar()}</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
-export default ProjectDetails;
+const mapStateToProps = (state, ownProps) => {
+
+  return { project: state.projects[ownProps.match.params.id] };
+}
+
+export default connect(mapStateToProps, {
+  fetchProject
+})(ProjectDetails);
