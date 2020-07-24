@@ -26,7 +26,7 @@ class Navbar extends React.Component {
             //         {this.state.isLoaded ? this.renderLinks() : null}
             //     </div>
             // </nav>
-            <nav className="navbar is-transparent is-fixed-top " role="navigation" aria-label="main navigation" data-target="#myNavbar">
+            <nav  className="navbar is-transparent is-fixed-top " role="navigation" aria-label="main navigation">
                 <div className="container">
                     <div className="navbar-brand">
                         <a className="navbar-item" href="#">
@@ -45,7 +45,7 @@ class Navbar extends React.Component {
 
 
 
-                    <div id="navbarBurger " className="navbar-menu is-active">
+                    <div id="navbarBurger" className="navbar-menu is-active">
                         <div className="navbar-end">
                             <a href="#home" className="navbar-item has-text-weight-medium">Home</a>
                             <a href="#about" className="navbar-item has-text-weight-medium">About</a>
