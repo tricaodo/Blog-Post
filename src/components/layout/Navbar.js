@@ -2,16 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SignedInLinks from "./SignedInLinks";
 import SignedOutLinks from "./SignedOutLinks";
-import { fetchProfile } from "../../store/actions/authActions";
 import { connect } from "react-redux";
 
 
 class Navbar extends React.Component {
-    state = { isLoaded: false };
-    componentDidMount() {
-        this.props.fetchProfile();
-        this.setState({ isLoaded: true });
-    }
 
     renderLinks = () => {
         const { auth } = this.props;
@@ -26,7 +20,7 @@ class Navbar extends React.Component {
             //         {this.state.isLoaded ? this.renderLinks() : null}
             //     </div>
             // </nav>
-            <nav  className="navbar is-transparent is-fixed-top " role="navigation" aria-label="main navigation">
+            <nav className="navbar is-transparent is-fixed-top " role="navigation" aria-label="main navigation">
                 <div className="container">
                     <div className="navbar-brand">
                         <a className="navbar-item" href="#">
@@ -49,8 +43,9 @@ class Navbar extends React.Component {
                         <div className="navbar-end">
                             <a href="#home" className="navbar-item has-text-weight-medium">Home</a>
                             <a href="#about" className="navbar-item has-text-weight-medium">About</a>
-                            <a href="#experience" className="navbar-item has-text-weight-medium">Experiences</a>
-                            <a href="#project" className="navbar-item has-text-weight-medium">Projects</a>
+                            <Link to="/signin" className="navbar-item has-text-weight-medium">Login</Link>
+                            <Link to="/projects/new" className="navbar-item has-text-weight-medium">Create Project</Link>
+                            <Link to="/projects" className="navbar-item has-text-weight-medium">Projects</Link>
                         </div>
                     </div>
                 </div>
@@ -63,4 +58,4 @@ const mapStateToProps = state => {
     return { auth: state.auth };
 }
 
-export default connect(mapStateToProps, { fetchProfile })(Navbar);
+export default connect(mapStateToProps)(Navbar);

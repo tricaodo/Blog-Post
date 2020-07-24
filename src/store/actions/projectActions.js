@@ -1,25 +1,18 @@
 import fb from "../../config/fbConfig"
 import history from "../../history";
+import { ADD_PROJECT } from "../types";
 
-export const createProject = (project) => (dispatch, getState) => {
+export const createProject = project => dispatch => {
   const db = fb.firestore();
-  const { auth } = getState();
   const data = {
     ...project,
-    authorFirstName: auth.firstName,
-    authorLastName: auth.lastName,
-    authorId: auth.currentUserId,
     createdAt: fb.firestore.Timestamp.fromDate(new Date()),
   }
-  db.collection("projects")
+  return db.collection("projects")
     .add(data)
-    .then(doc => {      
-      dispatch({ type: "ADD_PROJECT", payload: { ...data, id: doc.id } })
-      history.push("/") ;
+    .then(doc => {
+      dispatch({ type: ADD_PROJECT, payload: { ...data, id: doc.id } })
     })
-    .catch((error) => {
-      dispatch({ type: "ADD_PROJECT_ERROR", error });
-    });
 };
 
 export const fetchProjects = () => async dispatch => {
