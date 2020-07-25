@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/tricaodo/TrisBlog/precache-manifest.7104327946aaeb5f9103dd66080162cd.js"
+  "/tricaodo/TrisBlog/precache-manifest.eb5c22ebec1c3b74b267bdd6bc94a8e4.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b53e5aafc3145ee2b921d62698682efd",
+    "revision": "43d687a3bdb1c93a7d3a0bde118efbcd",
     "url": "/tricaodo/TrisBlog/index.html"
   },
   {
