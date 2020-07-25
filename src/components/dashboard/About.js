@@ -1,3 +1,4 @@
+
 import React from "react";
 
 class About extends React.Component {
@@ -79,7 +80,7 @@ class About extends React.Component {
                             <div className="tile is-parent">
                                 <article className="tile is-child box">
                                     <figure className="image is-32x32">
-                                        <img src="./images/angel-hack2.png" />
+                                        <img src="./images/angel-hack2.png" alt="angel" />
                                     </figure>
                                     <p className="is-size-5 has-text-weight-bold">Participate in Angel Hackathon 2019.</p>
                                     <ul style={{ listStyle: "disc" }} className="ml-5">

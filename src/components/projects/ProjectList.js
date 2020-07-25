@@ -1,3 +1,4 @@
+/* eslint react/jsx-no-target-blank: 0 */
 import React from "react";
 import { connect } from 'react-redux';
 import { fetchProjects } from "../../store/actions/projectActions";

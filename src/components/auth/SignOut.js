@@ -1,14 +1,16 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { signOut } from "../../store/actions/authActions";
 import Spinner from "../spinner/Spinner";
 
-const SignOut = props => {
-    useEffect(() => {
-        props.signOut();
-        props.history.push("/");
-    }, [])
-    return <Spinner />
+class SignOut extends React.Component {
+    componentDidMount() {
+        this.props.signOut();
+        this.props.history.push("/");
+    }
+    render() {
+        return <Spinner />
+    }
 }
 
 export default connect(null, {
