@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 const withAuthorization = ChildComponent => {
     class WithAuthorization extends React.Component {
+
         render() {
-            return <ChildComponent />
+            if (!this.props.auth.currentUserId) return <Redirect />
+            return <ChildComponent {...this.props} />
         }
     }
     const mapStateToProps = state => {

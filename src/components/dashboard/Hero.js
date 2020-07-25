@@ -3,7 +3,7 @@ import React from "react";
 class Hero extends React.Component {
     render() {
         return (
-            <section id="home" className="section  scrollspy" style={{ paddingTop: "150px", height: "950px" }}>
+            <section id="home" className="section  scrollspy" style={{ paddingTop: "250px", height: "950px" }}>
                 <div className="container">
                     <div className="columns">
                         <div className="column">
@@ -57,6 +57,9 @@ class Hero extends React.Component {
                                         </figure>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="has-text-centered">
+                                <a href="#about" className="has-text-primary">About Me</a>
                             </div>
                         </div>
                     </div>

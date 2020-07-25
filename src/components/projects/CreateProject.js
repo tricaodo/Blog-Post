@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { createProject } from "../../store/actions/projectActions";
 import { useToasts } from "react-toast-notifications";
+import withAuthorization from "../hoc/withAuthorization";
 
 const CreateProject = props => {
   const [projectForm, setProjectForm] = useState({
@@ -19,13 +20,13 @@ const CreateProject = props => {
   const handeSubmit = e => {
     e.preventDefault();
     props.createProject(projectForm)
-      .then(()=> {
+      .then(() => {
         addToast("Create Project Successfully", { appearance: 'success', autoDismiss: true, autoDismissTimeout: 3000 })
         props.history.push("/");
       }, error => {
         addToast(error.message, { appearance: 'error', autoDismiss: true, autoDismissTimeout: 3000 })
       })
-      
+
   }
 
   return (
@@ -59,6 +60,7 @@ const CreateProject = props => {
                       placeholder="Description..."></textarea>
                   </div>
                 </div>
+
                 <div className="field">
                   <label className="label">Image Url</label>
                   <div className="control">
@@ -87,4 +89,4 @@ const CreateProject = props => {
 
 export default connect(null, {
   createProject
-})(CreateProject);
+})(withAuthorization(CreateProject));

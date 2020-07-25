@@ -15,7 +15,7 @@ const SignIn = (props) => {
       .signIn(data)
       .then(() => {
         addToast("Sign In Successfully", { appearance: 'success', autoDismiss: true, autoDismissTimeout: 3000 })
-        props.history.push("/");
+        props.history.push("/projects/manage");
       })
       .catch(error => {
         loadingBtn.current.className = "input button is-primary";

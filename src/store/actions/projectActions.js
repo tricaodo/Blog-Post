@@ -1,6 +1,5 @@
 import fb from "../../config/fbConfig"
-import history from "../../history";
-import { ADD_PROJECT } from "../types";
+import { ADD_PROJECT, FETCH_PROJECTS, IS_FETCHING } from "../types";
 
 export const createProject = project => dispatch => {
   const db = fb.firestore();
@@ -16,6 +15,7 @@ export const createProject = project => dispatch => {
 };
 
 export const fetchProjects = () => async dispatch => {
+  dispatch({ type: IS_FETCHING })
   const db = fb.firestore();
   const projects = [];
   await db.collection("projects")
@@ -25,10 +25,10 @@ export const fetchProjects = () => async dispatch => {
         const project = { id: doc.id, ...doc.data() };
         projects.push(project);
       });
-      dispatch({ type: "FETCH_PROJECTS", payload: projects });
+      dispatch({ type: FETCH_PROJECTS, payload: projects });
     })
     .catch(error => {
-      dispatch({ type: "FETCH_PROJECTS_ERROR", error });
+      console.log(error.message);
     });
 }
 
