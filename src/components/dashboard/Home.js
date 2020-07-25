@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import Hero from "./Hero";
 import About from "./About";
 
-class Dashboard extends Component {
+class Home extends Component {
   render() {
     return (
       <React.Fragment>
@@ -18,4 +18,4 @@ const mapStateToProps = state => {
   return { projects: Object.values(state.projects) };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(Home);

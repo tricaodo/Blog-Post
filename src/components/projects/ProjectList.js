@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { fetchProjects } from "../../store/actions/projectActions";
-import { Link } from "react-router-dom"
 import Spinner from "../spinner/Spinner";
 
 class ProjectList extends React.Component {
@@ -12,7 +11,7 @@ class ProjectList extends React.Component {
   renderProjectList() {
     return this.props.projects.map(project => {
       return (
-        <div className="column is-one-fifth">
+        <div key={project.id} className="column is-one-fifth">
           <div className="card">
             <div className="card-image">
               <figure className="image is-4by3">
@@ -26,13 +25,13 @@ class ProjectList extends React.Component {
             <div className="card-content is-size-7">
               <div className="content">
                 {project.description}
-                <p><span className="has-text-weight-bold">Technologies: </span>Tri Do</p>
+                <p className="is-italic"><span className="has-text-weight-bold">Technologies: </span>{this.renderTechnologies(project.technologies)}</p>
               </div>
             </div>
             {
               <div className="card-footer">
                 <div className="card-footer-item media">
-                  <Link to={`projects/${project.id}`} className="is-size-7 is-primary">Learn More</Link >
+                  <a href={project.link} target="_blank" className="is-size-7 is-primary">Learn More</a >
                 </div>
               </div>
             }
@@ -40,6 +39,18 @@ class ProjectList extends React.Component {
         </div>
       )
     })
+  }
+
+  renderTechnologies = (technologies) => {
+
+    let string = "";
+    for(let i = 0; i < technologies.length; i++){
+      string += technologies[i];
+      if(i + 1 < technologies.length){
+        string += ", "
+      }
+    }
+    return string;
   }
 
   render() {

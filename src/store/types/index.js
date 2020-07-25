@@ -3,3 +3,4 @@ export const SIGN_OUT = "SIGN_OUT";
 export const ADD_PROJECT = "ADD_PROJECT";
 export const FETCH_PROJECTS = "FETCH_PROJECTS";
 export const IS_FETCHING = "IS_FETCHING";
+export const ON_AUTH_CHANGED = "ON_AUTH_CHANGED"

@@ -16,45 +16,42 @@ class ManageProjects extends React.Component {
         if (this.props.isFetching) return <Spinner />
         const { projects } = this.props
         return (
-            <section className="section" style={{ marginTop: "100px" }}>
-                <div className="container">
-                    <div className="columns is-mobile is-centered is-multiline">
-                        <div className="column is-two-thirds">
-                            <h1 className="title">Collaborations</h1>
-                            <div className="box content">
-                                {projects.map(project => (
-                                    <article className="media" key={project.id}>
-                                        <div className="media-left">
-                                            <figure className="image is-32x32">
-                                                <img src={project.image} alt={project.image} />
-                                            </figure>
-                                        </div>
-                                        <div className="media-content">
-
-                                            <div className="content">
-
-                                                <span className="has-text-weight-semibold">{project.title}  </span>
-                                                <p>
-                                                    <span className="is-size-7 is-italic">replied {moment(project.createdAt.toDate()).fromNow()} &nbsp;</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div className="media-right">
-                                            <span className="has-text-grey-light">
-                                                <Link to={`/collaborations/${project.id}`}>
-                                                    <button className="button is-primary is-light is-outlined">Enter</button>
-                                                </Link>
-                                            </span>
-                                        </div>
-
-                                    </article>
-                                ))
-                                }
+            <React.Fragment>
+                <h1 className="title">Projects</h1>
+                <div className="box content">
+                    {projects.map(project => (
+                        <article className="media" key={project.id}>
+                            <div className="media-left">
+                                <figure className="image is-32x32">
+                                    <img src={project.image} alt={project.image} />
+                                </figure>
                             </div>
-                        </div>
-                    </div>
+                            <div className="media-content">
+
+                                <div className="content">
+
+                                    <span className="has-text-weight-semibold">{project.title}  </span>
+                                    <p>
+                                        <span className="is-size-7 is-italic">created {moment(project.createdAt.toDate()).fromNow()} &nbsp;</span>
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="media-right">
+                                <span className="has-text-grey-light">
+                                    <Link to={`/collaborations/${project.id}`}>
+                                        <button className="button is-success is-light is-outlined is-small mr-2">Edit</button>
+                                    </Link>
+                                    <Link to={`/collaborations/${project.id}`}>
+                                        <button className="button is-danger is-light is-outlined is-small">Delete</button>
+                                    </Link>
+                                </span>
+                            </div>
+
+                        </article>
+                    ))
+                    }
                 </div>
-            </section>
+            </React.Fragment>
         )
     }
 }

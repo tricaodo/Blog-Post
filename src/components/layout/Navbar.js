@@ -1,16 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SignedInLinks from "./SignedInLinks";
-import SignedOutLinks from "./SignedOutLinks";
 import { connect } from "react-redux";
 
 
 class Navbar extends React.Component {
-
-    renderLinks = () => {
-        const { auth } = this.props;
-        return auth.currentUserId !== null ? <SignedInLinks /> : <SignedOutLinks />
-    }
 
     render() {
         return (
@@ -34,8 +27,6 @@ class Navbar extends React.Component {
                     <div id="navbarBurger" className="navbar-menu is-active">
                         <div className="navbar-end">
                             <Link to="/" className="navbar-item has-text-weight-medium">Home</Link>
-                            <Link to="/signin" className="navbar-item has-text-weight-medium">Login</Link>
-                            <Link to="/projects/new" className="navbar-item has-text-weight-medium">Create Project</Link>
                             <Link to="/projects" className="navbar-item has-text-weight-medium">Projects</Link>
                         </div>
                     </div>
@@ -45,8 +36,5 @@ class Navbar extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return { auth: state.auth };
-}
-
-export default connect(mapStateToProps)(Navbar);
+export default connect(null, {
+})(Navbar);

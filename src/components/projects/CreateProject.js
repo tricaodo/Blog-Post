@@ -9,16 +9,24 @@ const CreateProject = props => {
     title: "",
     description: "",
     image: "",
+    link: "",
+    technologies: []
   });
   const { addToast } = useToasts();
 
   const handleChange = e => {
     const { name, value } = e.target;
-    setProjectForm({ ...projectForm, [name]: value });
+    if (name === "technologies") {
+      const formatString = value.replace(/\s+/g, '').split(",")
+      setProjectForm({ ...projectForm, [name]: formatString });
+    } else {
+      setProjectForm({ ...projectForm, [name]: value });
+    }
   }
 
   const handeSubmit = e => {
     e.preventDefault();
+    console.log(projectForm);
     props.createProject(projectForm)
       .then(() => {
         addToast("Create Project Successfully", { appearance: 'success', autoDismiss: true, autoDismissTimeout: 3000 })
@@ -30,7 +38,7 @@ const CreateProject = props => {
   }
 
   return (
-    <section className="section" style={{ marginTop: "50px" }}>
+    <section className="section pt-0">
       <div className="container">
         <div className="columns is-mobile is-centered ">
           <div className="column is-two-thirds">
@@ -69,7 +77,31 @@ const CreateProject = props => {
                       onChange={handleChange}
                       className="input"
                       type="text"
-                      placeholder="Text input" />
+                      placeholder="Image URL" />
+                  </div>
+                </div>
+
+                <div className="field">
+                  <label className="label">Link</label>
+                  <div className="control">
+                    <input
+                      name="link"
+                      onChange={handleChange}
+                      className="input"
+                      type="text"
+                      placeholder="Link" />
+                  </div>
+                </div>
+
+                <div className="field">
+                  <label className="label">Technologies</label>
+                  <div className="control">
+                    <input
+                      name="technologies"
+                      onChange={handleChange}
+                      className="input"
+                      type="text"
+                      placeholder="Technologies" />
                   </div>
                 </div>
 

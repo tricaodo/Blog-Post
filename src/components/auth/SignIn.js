@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { signIn } from "../../store/actions/authActions";
 import { useForm } from "react-hook-form";
 import { useToasts } from "react-toast-notifications";
+import withGuest from "../hoc/withGuest";
 
 const SignIn = (props) => {
   const { register, handleSubmit } = useForm();
@@ -15,7 +16,7 @@ const SignIn = (props) => {
       .signIn(data)
       .then(() => {
         addToast("Sign In Successfully", { appearance: 'success', autoDismiss: true, autoDismissTimeout: 3000 })
-        props.history.push("/projects/manage");
+        props.history.push("/projects/dashboard");
       })
       .catch(error => {
         loadingBtn.current.className = "input button is-primary";
@@ -78,4 +79,4 @@ const SignIn = (props) => {
 }
 export default connect(null, {
   signIn
-})(SignIn);
+})(withGuest(SignIn));
