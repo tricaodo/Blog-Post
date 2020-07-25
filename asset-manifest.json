@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/tricaodo/TrisBlog/static/css/main.e01e262d.chunk.css",
+    "main.js": "/tricaodo/TrisBlog/static/js/main.696661f5.chunk.js",
+    "main.js.map": "/tricaodo/TrisBlog/static/js/main.696661f5.chunk.js.map",
+    "runtime-main.js": "/tricaodo/TrisBlog/static/js/runtime-main.1acef864.js",
+    "runtime-main.js.map": "/tricaodo/TrisBlog/static/js/runtime-main.1acef864.js.map",
+    "static/js/2.421af236.chunk.js": "/tricaodo/TrisBlog/static/js/2.421af236.chunk.js",
+    "static/js/2.421af236.chunk.js.map": "/tricaodo/TrisBlog/static/js/2.421af236.chunk.js.map",
+    "index.html": "/tricaodo/TrisBlog/index.html",
+    "precache-manifest.7104327946aaeb5f9103dd66080162cd.js": "/tricaodo/TrisBlog/precache-manifest.7104327946aaeb5f9103dd66080162cd.js",
+    "service-worker.js": "/tricaodo/TrisBlog/service-worker.js",
+    "static/css/main.e01e262d.chunk.css.map": "/tricaodo/TrisBlog/static/css/main.e01e262d.chunk.css.map",
+    "static/js/2.421af236.chunk.js.LICENSE.txt": "/tricaodo/TrisBlog/static/js/2.421af236.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1acef864.js",
+    "static/js/2.421af236.chunk.js",
+    "static/css/main.e01e262d.chunk.css",
+    "static/js/main.696661f5.chunk.js"
+  ]
+}
