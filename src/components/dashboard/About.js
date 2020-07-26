@@ -4,7 +4,7 @@ import React from "react";
 class About extends React.Component {
     render() {
         return (
-            <section id="about" className="section has-background-light" style={{paddingTop:"50px" , height: "900px" }}>
+            <section id="about" className="section has-background-light" style={{ paddingTop: "50px", height: "900px" }}>
                 <div className="container scrollspy">
                     <div className="columns ">
                         <div className="column">
@@ -15,19 +15,19 @@ class About extends React.Component {
                                 <div className="tile is-child box">
                                     <p className="title has-text-grey-dark mb-3">About Me</p>
                                     <p className="is-size-6 has-text-grey mb-3">
-                                        Hello, I’m a Patrick, web-developer based on Paris. I have rich experience in web site
-                                        design & building and customization. Also I am good at
+                                        Hello, I’m a Tri Do, Computer Science student at San Jose State University. I have rich experience in website, & building backend server. Also I am good at
                             </p>
                                     <ul className="unorderd-list">
                                         <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">Java</span></li>
+                                        <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">Spring Boot</span>
+                                        </li>
                                         <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">JavaScript</span>
                                         </li>
                                         <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">ReactJS</span>
-                                        </li>
-                                        <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">Spring Boot</span>
-                                        </li>
+                                        </li>                                        
                                         <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">HTML</span></li>
                                         <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">CSS</span></li>
+                                        <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">Data Structures & Algorithms</span></li>
                                     </ul>
                                     <p>
                                         <button className="button is-rounded is-primary mt-5 is-outlined ">
