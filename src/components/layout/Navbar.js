@@ -5,6 +5,12 @@ import { connect } from "react-redux";
 
 
 class Navbar extends React.Component {
+    componentDidMount() {
+        const script = document.createElement("script");
+        script.src = `${process.env.PUBLIC_URL}/js/fresh.js`;
+        script.async = true;
+        document.body.appendChild(script);
+    }
 
     render() {
         return (
@@ -25,7 +31,7 @@ class Navbar extends React.Component {
                         </a>
                     </div>
 
-                    <div id="navbarBurger" className="navbar-menu is-active">
+                    <div id="navbarBurger" className="navbar-menu">
                         <div className="navbar-end">
                             <Link to="/" className="navbar-item has-text-weight-medium">Home</Link>
                             <Link to="/projects" className="navbar-item has-text-weight-medium">Projects</Link>
