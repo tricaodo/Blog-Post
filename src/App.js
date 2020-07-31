@@ -3,7 +3,6 @@ import { Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import history from "./history";
 import ProjectList from "./components/projects/ProjectList";
-import Spinner from "./components/spinner/Spinner";
 import Home from "./components/dashboard/Home";
 
 

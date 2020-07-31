@@ -1,5 +1,6 @@
 
 import React from "react";
+import pdfFile from "../../files/web_resume.pdf"
 
 class About extends React.Component {
     render() {
@@ -24,18 +25,23 @@ class About extends React.Component {
                                         <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">JavaScript</span>
                                         </li>
                                         <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">ReactJS</span>
-                                        </li>                                        
+                                        </li>
                                         <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">HTML</span></li>
                                         <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">CSS</span></li>
                                         <li><span className="has-text-grey-dark is-size-7 has-text-weight-medium">Data Structures & Algorithms</span></li>
                                     </ul>
                                     <p>
-                                        <button className="button is-rounded is-primary mt-5 is-outlined ">
+                                        <a
+                                            href={pdfFile}
+                                            type="application/pdf"
+                                            download="web_resume.pdf"
+                                            
+                                            className="button is-rounded is-primary mt-5 is-outlined ">
                                             Download CV
                                     <span className="icon">
                                                 <i className="ml-3 fa fa-download"></i>
                                             </span>
-                                        </button>
+                                        </a>
                                     </p>
                                 </div>
                             </div>
