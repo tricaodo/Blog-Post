@@ -59,7 +59,7 @@ class About extends React.Component {
                                         <li>
                                             <span className="is-size-7 ">
                                                 Implemented RESTFUL API, and microservices using Spring Boot, Java
-                                                Lambda 8 for the users to determine whether the loans should be held for sale or
+                                                Lambda 8 for users to determine whether loans should be held for sale or
                                                 investment.
                                     </span>
                                         </li>
