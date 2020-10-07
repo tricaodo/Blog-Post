@@ -34,7 +34,7 @@ class About extends React.Component {
                                         <a
                                             href={pdfFile}
                                             type="application/pdf"
-                                            download="web_resume.pdf"
+                                            download="tridoresume.pdf"
                                             
                                             className="button is-rounded is-primary mt-5 is-outlined ">
                                             Download CV
