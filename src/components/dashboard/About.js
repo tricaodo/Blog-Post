@@ -1,6 +1,6 @@
 
 import React from "react";
-import pdfFile from "../../files/web_resume.pdf"
+import pdfFile from "../../files/tridoresume.pdf"
 
 class About extends React.Component {
     render() {
